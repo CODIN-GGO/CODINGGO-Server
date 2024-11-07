@@ -1,4 +1,5 @@
-FROM node:20
+FROM node:20-alpine
+# Alpine 기반 경량 이미지 사용
 
 WORKDIR /usr/src/app
 
