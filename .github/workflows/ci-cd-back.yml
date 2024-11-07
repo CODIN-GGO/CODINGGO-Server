@@ -44,7 +44,6 @@ jobs:
         uses: actions/checkout@v3  # 최신 버전 사용
         with:
           repository: CODINGGO/CODINGGO-deploy
-          path: manifests
           token: ${{ secrets.CODINGGO_DEPLOY_KEY }}
 
       - name: Update manifest
@@ -52,7 +51,6 @@ jobs:
           sed -i "s|image: asia-northeast3-docker.pkg.dev/gachonpractice/society-docker-repo/codinggo-back:.*|image: asia-northeast3-docker.pkg.dev/gachonpractice/society-docker-repo/codinggo-back:${{ github.sha }}|" docker-compose.yml
       
       - name: Commit and push changes
-        working-directory: manifests
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
