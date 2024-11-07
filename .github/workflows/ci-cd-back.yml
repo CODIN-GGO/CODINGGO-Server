@@ -43,7 +43,7 @@ jobs:
       - name: Checkout deployment repo
         uses: actions/checkout@v3  # 최신 버전 사용
         with:
-          repository: CODINGGO/CODINGGO-deploy
+          repository: CODIN-GGO/CODINGGO-deploy
           token: ${{ secrets.CODINGGO_DEPLOY_KEY }}
 
       - name: Update manifest
