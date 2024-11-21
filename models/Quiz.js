@@ -42,5 +42,6 @@ module.exports = class Quiz extends Sequelize.Model {
   static associate(db) {
     db.Quiz.hasMany(db.Quest, { foreignKey: 'quiz_id', sourceKey: 'id' });
     db.Quiz.hasMany(db.UserQuiz, { foreignKey: 'quiz_id' });
+    db.Quiz.belongsTo(db.User, { foreignKey: 'writer_id', targetKey: 'id', as: 'writer' });
   }
 };

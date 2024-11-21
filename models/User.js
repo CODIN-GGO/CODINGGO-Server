@@ -50,5 +50,6 @@ module.exports = class User extends Sequelize.Model {
   static associate(db) {
     db.User.hasMany(db.UserQuiz, { foreignKey: 'user_id' });
     db.User.hasMany(db.UserScore, { foreignKey: 'user_id' });
+    db.User.hasMany(db.Quiz, { foreignKey: 'writer_id' });
   }
 };
