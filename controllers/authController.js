@@ -40,19 +40,21 @@ const login = async (req, res) => {
             // jwt토큰, refresh토큰 생성
             const token = jwtService.generateToken(user);
             const refreshToken = jwtService.generateRefreshToken(user);
-            const result = { userId: user.id, access: token,  refresh: refreshToken};
-            const response = new UserLoginResponseDTO(true, 'LOGIN_SUCCESS', 'Login successful', result);
+            const result = { userId: user.id, accessToken: token,  refreshToken: refreshToken};
+
+            console.log(result);
+            const response = new UserLoginResponseDTO(true, 'LOGIN_SUCCESS', '로그인에 성공했습니다.', result);
 
             // refreshToken 업데이트
             await UserService.updateRefreshToken(user.id, refreshToken);
 
             return res.status(200).json(response);
         } else {
-            const response = new UserLoginResponseDTO(false, 'LOGIN_FAILED', 'Invalid email or password');
+            const response = new UserLoginResponseDTO(false, 'LOGIN_FAILED', '이메일과 비밀번호를 확인해주세요.', null);
             return res.status(401).json(response);
         }
     } catch (error) {
-        const response = new UserLoginResponseDTO(false, 'LOGIN_FAILED', 'Login failed');
+        const response = new UserLoginResponseDTO(false, 'LOGIN_FAILED', error.message || '로그인 중 오류가 발생했습니다.', null);
         return res.status(500).json(response);
     }
 };

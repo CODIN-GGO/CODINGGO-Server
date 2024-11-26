@@ -62,16 +62,16 @@ class UserLoginResponseDTO extends BaseDTO {
     message;
     result;
 
-    constructor(isSuccess, code, message, userId, access, refresh) {
+    constructor(isSuccess, code, message, result) {
         super();
         this.isSuccess = isSuccess;
         this.code = code;
         this.message = message;
-        this.result = {
-            userId: userId, // 로그인 유저 아이디
-            accessToken: access, // JWT 토큰
-            refreshToken: refresh, // JWT 토큰
-        };
+        this.result = result ? {
+            userId: result.userId, // 로그인 유저 아이디
+            access: result.accessToken, // JWT 토큰
+            refresh: result.refreshToken, // JWT 토큰
+        } : null; // result가 없을 경우 null
         this.validate(this);
     }
 }
