@@ -9,7 +9,7 @@ const authRoutes = require('./routes/authRoutes');
 
 dotenv.config();
 const app = express();
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8000);
 
 // sequelize 연결
 sequelize.sync({force: false})
