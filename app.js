@@ -12,7 +12,7 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 
 // sequelize 연결
-sequelize.sync({force: true})
+sequelize.sync({force: false})
   .then(()=>{
     console.log('DB 연결')
   })
