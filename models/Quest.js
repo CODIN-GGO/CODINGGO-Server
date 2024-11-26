@@ -10,7 +10,7 @@ module.exports = class Quest extends Sequelize.Model {
         autoIncrement: true,
       },
       content: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(255),
         allowNull: true,
       },
       score: {
@@ -18,16 +18,21 @@ module.exports = class Quest extends Sequelize.Model {
         allowNull: true,
       },
       type: {
-        type: Sequelize.ENUM('multiple_choice', 'true_false'),
+        type: Sequelize.ENUM('multiple', 'blank'),
         allowNull: true,
       },
       answer: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(255),
+        allowNull: true,
+      },
+      correctAnswer: {
+        type: Sequelize.STRING(255),
         allowNull: true,
       },
       image_url: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(255),
         allowNull: true,
+        defaultValue: null, // 기본값으로 null 설정
       },
       quiz_id: {
         type: Sequelize.BIGINT,
