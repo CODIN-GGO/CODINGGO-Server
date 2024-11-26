@@ -7,6 +7,7 @@ module.exports = class UserQuest extends Sequelize.Model {
         type: Sequelize.BIGINT,
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
       },
       selected_answer: {
         type: Sequelize.STRING(10),

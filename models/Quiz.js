@@ -7,6 +7,7 @@ module.exports = class Quiz extends Sequelize.Model {
         type: Sequelize.BIGINT,
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
       },
       title: {
         type: Sequelize.STRING(10),
