@@ -59,22 +59,7 @@ const login = async (req, res) => {
     }
 };
 
-// // 로그아웃
-// const logout = async (req, res) => {
-//     try {
-//         const userId = req.user.id; // authenticateToken 미들웨어에서 설정한 사용자 ID
-
-//         // refreshToken을 null로 설정
-//         await UserService.updateRefreshToken(userId, null);
-
-//         res.json({ message: '로그아웃 성공.' });
-//     } catch (error) {
-//         res.status(500).json({ message: '로그아웃 중 오류가 발생했습니다.', error: error.message });
-//     }
-// };
-
 module.exports = {
     register,
     login,
-    // logout,
 };
