@@ -7,6 +7,7 @@ module.exports = class Quest extends Sequelize.Model {
         type: Sequelize.BIGINT,
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
       },
       content: {
         type: Sequelize.STRING(30),

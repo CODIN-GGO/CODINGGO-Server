@@ -7,6 +7,7 @@ module.exports = class UserQuiz extends Sequelize.Model {
         type: Sequelize.BIGINT,
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
       },
       total_score: {
         type: Sequelize.INTEGER,

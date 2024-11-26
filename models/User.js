@@ -7,6 +7,7 @@ module.exports = class User extends Sequelize.Model {
         type: Sequelize.BIGINT,
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
       },
       name: {
         type: Sequelize.STRING(10),
@@ -25,16 +26,23 @@ module.exports = class User extends Sequelize.Model {
         allowNull: true,
       },
       password: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(255),
         allowNull: true,
       },
       image_url: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(50),
         allowNull: true,
+        defaultValue: null, // 기본값으로 null 설정
       },
       is_admin: {
         type: Sequelize.BOOLEAN,
         allowNull: true,
+        defaultValue: false, // 기본값으로 false 설정
+      },
+      refreshToken: {
+        type: Sequelize.STRING(255),
+        allowNull: true,
+        defaultValue: null, // 기본값으로 null 설정
       },
     }, {
       sequelize,

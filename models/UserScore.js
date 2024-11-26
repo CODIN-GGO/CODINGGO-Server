@@ -7,6 +7,7 @@ module.exports = class UserScore extends Sequelize.Model {
         type: Sequelize.BIGINT,
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
       },
       score: {
         type: Sequelize.INTEGER,
